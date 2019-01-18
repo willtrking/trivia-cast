@@ -19,6 +19,7 @@ Shoot The Messenger
 
 - A user is selected as guesser
 - - Server assigns guesser, sends PlayerFrame w/ who is guesser
+- - Server sends PlayerFrame with GameState 'RESPONDING'
 
 - Server sends PromptResponseInputFrame to everyone + apple tv
 
@@ -33,32 +34,35 @@ Shoot The Messenger
 - After each player has answered, server checks if all players did answer
 - Send RoleFrame to guesser + Apple TV
 
-- When Apple TV receives RoleFrame, begin guessing sequence
+- When Apple TV receives GameState = 'READING', begin reading sequence
 
-- When guesser receives RoleFrame, begin guessing sequence
-- - Receives all guesses From Apple TV
+- When guesser receives RoleFrame (with guesser ID) and GameState = 'READING', begin reading sequence
+- - Receives all responses in AllResponsesFrame
 
-- Guesser browser displays response
-- - Sends response displayed to Apple TV
+- Guesser browser displays one response at a time
+- - Sends response displayed to Apple TV via ReadResponseFrame
 
 - Guesser continues swiping through responses
-- - Sends response displayed to Apple TV
+- - Sends response displayed to Apple TV via ReadResponseFrame
 
 - Once all responeses swiped through, show new interface on browser and apple tv
-- - Browser sends DONE to Apple TV
+- - Server sends GameState = 'GUESSING' to Apple TV and all clients
 
 - Guesser guesses who responded to what
-- - Send GUESS + data to Apple TV
-- - Apple TV verifies guess
+- - Send GuessFrame to server
+- - server verifies guess
 
 - If guess is right, show UI on apple TV. User who was guessed is out, award point to guesser
 - - Send ADD POINT event for guesser
+- - (TODO: implement points)
 
-- If guess is wrong, show UI on apple TV, new user becomes guesser, continues guessing current answer
-- - Send NEW GUESSER w/ user ID
+- If guess is wrong, show UI on apple TV, new user becomes guesser, continues guessing current set of responses
+- - Send RoleFrame with original guesser out
+- - Send RoleFrame with new guesser ID
+- - Send AllResponsesFrame with remaining responses
 
 - If all guesses are correct, game / round is over. Display current score
-- - Send END ROUND + current score
+- - Send GameState = 'RESULTS' + current score
 
 - If all users are failures,  game / round is over. Display current score
 - - Send END ROUND + current score

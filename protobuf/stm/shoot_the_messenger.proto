@@ -1,8 +1,15 @@
 syntax = "proto3";
 
-package stm;
+package protobuf.stm;
 
 
+enum STATE {
+  UNKNOWN = 0;
+  RESPONDING = 1;
+  READING = 2;
+  GUESSING = 3;
+  RESULTS = 4;
+}
 
 
 
@@ -10,6 +17,12 @@ message Prompt {
     string id = 1;
 
     string contents = 2;
+}
+
+message Response {
+    string id = 1;
+
+    string response = 2;
 }
 
 message RoleFrame {
@@ -41,6 +54,13 @@ message PromptResponseInputFrame {
     string prompt_id = 1;
 }
 
+message AllResponsesFrame {
+    repeated Response responses = 1;
+}
+
+message ReadResponseFrame {
+    string response_id = 1;
+}
 
 
 message PlayerFrame {
@@ -49,7 +69,7 @@ message PlayerFrame {
 
     oneof frame {
 
-        GameStarted started = 2;
+        GameState state = 2;
 
         GuessFrame guess = 3;
 
@@ -58,6 +78,11 @@ message PlayerFrame {
         PromptResponseFrame prompt_response = 5;
 
         RoleFrame role_change = 6;
+
+        AllResponsesFrame all_responses = 7;
+
+        ReadResponseFrame read_response = 8;
+
     }
 
 }
@@ -68,16 +93,18 @@ message BeginGameReq {
     string room_id = 1;
 }
 
-message GameStarted {
+message GameState {
 
-    repeated Prompt prompts = 1;
+    STATE game_state = 1;
+
+    repeated Prompt prompts = 2;
 }
 
 
 
 service ShootTheMessenger {
 
-    rpc BeginGame(BeginGameReq) returns (GameStarted);
+    rpc BeginGame(BeginGameReq) returns (GameState);
 
 
     rpc PlayerStream(stream PlayerFrame) returns (stream PlayerFrame);
