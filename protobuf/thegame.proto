@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package protobuf;
+
+enum PLAYER_STATE {
+    UNKNOWN = 0;
+    JOINED = 1;
+    PLAYING = 2;
+    DISCONNECTED = 3;
+}
+
+
+message Room {
+    string id = 1;
+}
+
+message CreateRoomReq {}
+
+message RoomState {
+
+    Room room = 1;
+
+    repeated Player players = 2;
+
+    Round current_round = 3;
+
+    repeated Round rounds = 4;
+}
+
+message Round {
+    uint64 number = 1;
+
+    Player winner = 2;
+
+    repeated Player players = 3;
+}
+
+message Player {
+
+    string id = 1;
+
+    string name = 2;
+
+    PLAYER_STATE state = 3;
+
+    int64 score = 4;
+
+}
+
+
+
+service BaseGame {
+
+    rpc CreateRoom(CreateRoomReq) returns (stream RoomState);
+
+    rpc JoinRoom(Player) returns (stream RoomState);
+
+
+}
