@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package protobuf;
+option go_package = "go/protobuf";
 
 enum PLAYER_STATE {
     UNKNOWN = 0;

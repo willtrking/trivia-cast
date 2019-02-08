@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-package protobuf.stm;
+package stm;
+option go_package = "go/protobuf/stm";
 
 
 enum STATE {

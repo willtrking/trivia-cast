@@ -12,15 +12,12 @@ cd $DIR
 proto_folders=(stm)
 
 # Compile protocol buffers for Go
-protoc -I/usr/local/include -I. --go_out=plugins=grpc:$DIR/../go/protobuf *.proto
+protoc -I/usr/local/include -I. --go_out=plugins=grpc:$DIR/../ *.proto
 
 # Compile protocol buffers for Javascript
 grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../javascript/protobuf --grpc_out=../javascript/protobuf --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` *.proto
 
-
-protoc -I/protobuf -I. --objc_out=../ios/TriviaCast/TriviaCast/Models/protobuf --objcgrpc_out=../ios/TriviaCast/TriviaCast/Models/protobuf *.proto
-
 for protos in ${proto_folders[@]}; do \
-  protoc -I/usr/local/include -I. --go_out=plugins=grpc:$DIR/../go/protobuf ./${protos}/*.proto
+  protoc -I/usr/local/include -I. --go_out=plugins=grpc:$DIR/../ ./${protos}/*.proto
   grpc_tools_node_protoc --js_out=import_style=commonjs,binary:$DIR/../javascript/protobuf --grpc_out=$DIR/../javascript/protobuf --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` ./${protos}/*.proto
 done
