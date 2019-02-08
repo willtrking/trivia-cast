@@ -1,16 +1,121 @@
 PODS:
+  - "!ProtoCompiler (3.6.0)":
+    - Protobuf (~> 3.0)
+  - "!ProtoCompiler-gRPCPlugin (1.19.0-dev)":
+    - "!ProtoCompiler (= 3.6.0)"
+    - gRPC-ProtoRPC (= 1.19.0-dev)
+  - BoringSSL-GRPC (0.0.3):
+    - BoringSSL-GRPC/Implementation (= 0.0.3)
+    - BoringSSL-GRPC/Interface (= 0.0.3)
+  - BoringSSL-GRPC/Implementation (0.0.3):
+    - BoringSSL-GRPC/Interface (= 0.0.3)
+  - BoringSSL-GRPC/Interface (0.0.3)
+  - gRPC (1.19.0-dev):
+    - gRPC-RxLibrary (= 1.19.0-dev)
+    - gRPC/Main (= 1.19.0-dev)
+  - gRPC-Core (1.19.0-dev):
+    - gRPC-Core/Implementation (= 1.19.0-dev)
+    - gRPC-Core/Interface (= 1.19.0-dev)
+  - gRPC-Core/Implementation (1.19.0-dev):
+    - BoringSSL-GRPC (= 0.0.3)
+    - gRPC-Core/Interface (= 1.19.0-dev)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.19.0-dev)
+  - gRPC-ProtoRPC (1.19.0-dev):
+    - gRPC-ProtoRPC/Main (= 1.19.0-dev)
+  - gRPC-ProtoRPC/Main (1.19.0-dev):
+    - gRPC (= 1.19.0-dev)
+    - gRPC-RxLibrary (= 1.19.0-dev)
+    - Protobuf (~> 3.0)
+  - gRPC-RxLibrary (1.19.0-dev)
+  - gRPC/Main (1.19.0-dev):
+    - gRPC-Core (= 1.19.0-dev)
+    - gRPC-RxLibrary (= 1.19.0-dev)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - Proto (0.0.1):
+    - "!ProtoCompiler-gRPCPlugin"
+    - Proto/Messages (= 0.0.1)
+    - Proto/Services (= 0.0.1)
+  - Proto/Messages (0.0.1):
+    - "!ProtoCompiler-gRPCPlugin"
+    - Protobuf
+  - Proto/Services (0.0.1):
+    - "!ProtoCompiler-gRPCPlugin"
+    - gRPC-ProtoRPC
+    - Proto/Messages
+  - Protobuf (3.6.1)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
+  - "!ProtoCompiler (from `https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler.podspec`)"
+  - "!ProtoCompiler-gRPCPlugin (from `https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler-gRPCPlugin.podspec`)"
+  - BoringSSL-GRPC (from `https://raw.githubusercontent.com/bimawa/boringssl/feature/supportTVOS/BoringSSL-GRPC.podspec`)
+  - gRPC (from `https://github.com/grpc/grpc.git`, commit `0c39279b78066dd4a905b1f7ea48d5bf50e59f81`)
+  - gRPC-Core (from `https://github.com/grpc/grpc.git`, commit `0c39279b78066dd4a905b1f7ea48d5bf50e59f81`)
+  - gRPC-ProtoRPC (from `https://github.com/grpc/grpc.git`, commit `0c39279b78066dd4a905b1f7ea48d5bf50e59f81`)
+  - gRPC-RxLibrary (from `https://github.com/grpc/grpc.git`, commit `0c39279b78066dd4a905b1f7ea48d5bf50e59f81`)
+  - Proto (from `../../../protobuf`)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - nanopb
+    - Protobuf
     - SnapKit
 
+EXTERNAL SOURCES:
+  "!ProtoCompiler":
+    :podspec: "https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler.podspec"
+  "!ProtoCompiler-gRPCPlugin":
+    :podspec: "https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler-gRPCPlugin.podspec"
+  BoringSSL-GRPC:
+    :podspec: https://raw.githubusercontent.com/bimawa/boringssl/feature/supportTVOS/BoringSSL-GRPC.podspec
+  gRPC:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-Core:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-ProtoRPC:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-RxLibrary:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  Proto:
+    :path: "../../../protobuf"
+
+CHECKOUT OPTIONS:
+  gRPC:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-Core:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-ProtoRPC:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+  gRPC-RxLibrary:
+    :commit: 0c39279b78066dd4a905b1f7ea48d5bf50e59f81
+    :git: https://github.com/grpc/grpc.git
+
 SPEC CHECKSUMS:
+  "!ProtoCompiler": 5e58b4bfe5a3ffed121e99a8afac217ec7832048
+  "!ProtoCompiler-gRPCPlugin": 317d374e733beab00bd146c5cfe25b458056151c
+  BoringSSL-GRPC: 90346da4bdd20ba3aa2dacae61bea8788f4b5fb1
+  gRPC: 7a84bb7c69629bb4630e66db4acba678b542b60a
+  gRPC-Core: 453071db70ac42f20270765b69bfb636432504db
+  gRPC-ProtoRPC: 06f284a2ae79ebd6e07acb7741269d39bd7dd915
+  gRPC-RxLibrary: 5ba5eb136c462abe1da9ed9c772c2fe5dce76809
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Proto: 8fcaba3b42f1a93c56bb8a3eaab228c5b283d355
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: aa6d2d2188a3c9ad96446203ee3e391dc9039379
+PODFILE CHECKSUM: 018113bd12f4cccfccdc3beed1e656c3298002ef
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

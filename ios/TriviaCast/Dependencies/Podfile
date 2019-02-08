@@ -9,6 +9,15 @@ target 'TriviaCast' do
 
   # Pods for TriviaCast
   pod 'SnapKit'
+  pod 'Proto', :path => '../../../protobuf'
+
+  pod '!ProtoCompiler', :podspec => 'https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler.podspec'
+  pod '!ProtoCompiler-gRPCPlugin', :podspec => 'https://raw.githubusercontent.com/willtrking/grpc/master/src/objective-c/!ProtoCompiler-gRPCPlugin.podspec'
+  pod 'gRPC-RxLibrary',  :git => 'https://github.com/grpc/grpc.git', :commit => '0c39279b78066dd4a905b1f7ea48d5bf50e59f81'
+  pod 'gRPC',  :git => 'https://github.com/grpc/grpc.git', :commit => '0c39279b78066dd4a905b1f7ea48d5bf50e59f81'
+  pod 'gRPC-Core',  :git => 'https://github.com/grpc/grpc.git', :commit => '0c39279b78066dd4a905b1f7ea48d5bf50e59f81'
+  pod 'gRPC-ProtoRPC',  :git => 'https://github.com/grpc/grpc.git', :commit => '0c39279b78066dd4a905b1f7ea48d5bf50e59f81'
+  pod 'BoringSSL-GRPC', :podspec => 'https://raw.githubusercontent.com/bimawa/boringssl/feature/supportTVOS/BoringSSL-GRPC.podspec'
 
   target 'TriviaCastTests' do
     inherit! :search_paths

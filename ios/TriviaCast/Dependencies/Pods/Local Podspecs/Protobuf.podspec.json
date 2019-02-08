@@ -1,0 +1,54 @@
+{
+  "name": "Protobuf.podspec",
+  "authors": {
+    "William King": "willtrking@gmail.com"
+  },
+  "license": "penis",
+  "homepage": "...",
+  "summary": "...",
+  "version": "0.0.1",
+  "source": {
+    "git": "https://github.com/..."
+  },
+  "platforms": {
+    "ios": "7.1",
+    "osx": "10.9"
+  },
+  "dependencies": {
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.0"
+    ]
+  },
+  "prepare_command": "mkdir -p ../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec\n../ios/TriviaCast/Dependencies/Pods/!ProtoCompiler/protoc         --plugin=protoc-gen-grpc=../ios/TriviaCast/Dependencies/Pods/!ProtoCompiler-gRPCPlugin/grpc_objective_c_plugin         --objc_out=../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec         --grpc_out=../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec         -I .         -I ../ios/TriviaCast/Dependencies/Pods/!ProtoCompiler         ./*.proto",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": "../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec/*.pbobjc.{h,m}",
+      "header_mappings_dir": "../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": "../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec/*.pbrpc.{h,m}",
+      "header_mappings_dir": "../ios/TriviaCast/Dependencies/Pods/Protobuf.podspec",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "Protobuf.podspec/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
