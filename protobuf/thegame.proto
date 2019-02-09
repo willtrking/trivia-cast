@@ -15,7 +15,9 @@ message Room {
     string id = 1;
 }
 
-message CreateRoomReq {}
+message CreateRoomReq {
+    Player starting_player = 1;
+}
 
 message RoomState {
 

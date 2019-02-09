@@ -206,7 +206,7 @@ proto.protobuf.CreateRoomReq.prototype.toObject = function(opt_includeInstance) 
  */
 proto.protobuf.CreateRoomReq.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    startingPlayer: (f = msg.getStartingPlayer()) && proto.protobuf.Player.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -243,6 +243,11 @@ proto.protobuf.CreateRoomReq.deserializeBinaryFromReader = function(msg, reader)
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = new proto.protobuf.Player;
+      reader.readMessage(value,proto.protobuf.Player.deserializeBinaryFromReader);
+      msg.setStartingPlayer(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -272,6 +277,44 @@ proto.protobuf.CreateRoomReq.prototype.serializeBinary = function() {
  */
 proto.protobuf.CreateRoomReq.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getStartingPlayer();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.protobuf.Player.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional Player starting_player = 1;
+ * @return {?proto.protobuf.Player}
+ */
+proto.protobuf.CreateRoomReq.prototype.getStartingPlayer = function() {
+  return /** @type{?proto.protobuf.Player} */ (
+    jspb.Message.getWrapperField(this, proto.protobuf.Player, 1));
+};
+
+
+/** @param {?proto.protobuf.Player|undefined} value */
+proto.protobuf.CreateRoomReq.prototype.setStartingPlayer = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.protobuf.CreateRoomReq.prototype.clearStartingPlayer = function() {
+  this.setStartingPlayer(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.protobuf.CreateRoomReq.prototype.hasStartingPlayer = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
