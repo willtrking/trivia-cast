@@ -32,6 +32,8 @@
 		DC33BBA3220D48DE001AD4CD /* TCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33BBA2220D48DE001AD4CD /* TCViewController.swift */; };
 		DC33BBA5220E224B001AD4CD /* UserIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33BBA4220E224B001AD4CD /* UserIconView.swift */; };
 		DC33BBA7220E3114001AD4CD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33BBA6220E3114001AD4CD /* Player.swift */; };
+		DC33BBA9220E4B4D001AD4CD /* CircularIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33BBA8220E4B4D001AD4CD /* CircularIconsView.swift */; };
+		DC33BBAB220E58B6001AD4CD /* DoubleMediaBottomTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33BBAA220E58B6001AD4CD /* DoubleMediaBottomTitleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		DC33BBA2220D48DE001AD4CD /* TCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCViewController.swift; sourceTree = "<group>"; };
 		DC33BBA4220E224B001AD4CD /* UserIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIconView.swift; sourceTree = "<group>"; };
 		DC33BBA6220E3114001AD4CD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DC33BBA8220E4B4D001AD4CD /* CircularIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularIconsView.swift; sourceTree = "<group>"; };
+		DC33BBAA220E58B6001AD4CD /* DoubleMediaBottomTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleMediaBottomTitleViewController.swift; sourceTree = "<group>"; };
 		F1A751B18FF76374E0BE64E0 /* Pods_TriviaCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TriviaCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +226,7 @@
 				DC33BB91220B82DC001AD4CD /* TitleMediaActionsViewController.swift */,
 				DC33BBA0220D3DCF001AD4CD /* TitleDetailViewController.swift */,
 				DC33BBA2220D48DE001AD4CD /* TCViewController.swift */,
+				DC33BBAA220E58B6001AD4CD /* DoubleMediaBottomTitleViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			children = (
 				DC33BB9E220CF1C1001AD4CD /* MediaView.swift */,
 				DC33BBA4220E224B001AD4CD /* UserIconView.swift */,
+				DC33BBA8220E4B4D001AD4CD /* CircularIconsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 				DC33BB94220B91CD001AD4CD /* GameCoordinator.swift in Sources */,
 				DC33BB85220A2F12001AD4CD /* AppCoordinator.swift in Sources */,
 				DC33BB87220A2F7F001AD4CD /* TitleDetailActionViewController.swift in Sources */,
+				DC33BBAB220E58B6001AD4CD /* DoubleMediaBottomTitleViewController.swift in Sources */,
 				DC33BBA1220D3DCF001AD4CD /* TitleDetailViewController.swift in Sources */,
 				DC33BBA3220D48DE001AD4CD /* TCViewController.swift in Sources */,
 				DC33BB58220A0D3B001AD4CD /* ViewController.swift in Sources */,
@@ -516,6 +523,7 @@
 				DC33BB8E220A3BD5001AD4CD /* TypeAliases.swift in Sources */,
 				DC33BB90220A4F5F001AD4CD /* FontManager.swift in Sources */,
 				DC33BBA7220E3114001AD4CD /* Player.swift in Sources */,
+				DC33BBA9220E4B4D001AD4CD /* CircularIconsView.swift in Sources */,
 				DC33BB8A220A3301001AD4CD /* Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

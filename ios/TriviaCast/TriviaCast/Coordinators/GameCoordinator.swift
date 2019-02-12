@@ -73,7 +73,23 @@ class GameCoordinator: NSObject, RootCoordinating, ViewControllerListener {
     }
     
     func routeToJoinGameLobby() {
+        let joinScreen = DoubleMediaBottomTitleViewController()
         
+        joinScreen.setTitle("Join now @ bears.nz/bears")
+        
+        let userScreen = CircularIconsView()
+        
+        let testViews = (0..<1).map { _ -> UIView in
+            let view = UserIconView()
+            view.backgroundColor = UIColor.red
+            return view
+        }
+        
+        userScreen.setIcons(testViews)
+        
+        joinScreen.setRightMediaView(userScreen)
+        
+        navigationController.pushViewController(joinScreen, animated: true)
     }
     
     func dismissJoinGameLobby() {
